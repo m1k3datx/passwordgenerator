@@ -1,6 +1,8 @@
 # Password Generator
 
-A small, dependency-free command-line password generator for Python 3.8+.
+A small, dependency-free command-line password generator for Python 3.8+. This
+is a supporting utility for simple password-generation needs, not a password
+manager or a flagship security product.
 
 ## Usage
 
@@ -23,8 +25,12 @@ $ python generate_password.py -l 16 --no-uppercase --no-digits
 Generated password: ...
 ```
 
-At least one character group must remain enabled. Invalid lengths and an
-all-disabled configuration produce a clear command-line error.
+At least one character group must remain enabled. Enabled groups define the
+characters that are allowed, but they are not each guaranteed to appear in
+every password. Invalid lengths and an all-disabled configuration produce a
+clear command-line error. If a service requires one character from every
+group, apply that policy separately or use a tool that explicitly guarantees
+it.
 
 The generator can also be imported:
 
@@ -40,6 +46,8 @@ password = generate_password(20, use_symbols=False)
   intended for security-sensitive randomness.
 - Passwords are printed to standard output by the CLI. Avoid saving terminal
   history or output where passwords could be exposed.
+- This small utility does not manage passwords, assess password policy, or
+  replace a password manager or other security product.
 - The default is a convenience, not a policy recommendation. Use a length and
   character set compatible with the service where the password will be used.
 
